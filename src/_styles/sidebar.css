@@ -1,0 +1,10 @@
+aside {
+    background-color: white;
+    border: 2px solid brown;
+}
+
+@container article (min-width: 700px) {
+    aside {
+        float: right;
+    }
+}

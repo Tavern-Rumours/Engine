@@ -1,0 +1,5 @@
+{% macro quote(content, author='') %}
+<blockquote class="quote">
+    {{ content | safe }}{% if author and author | trim %}<div class="author">{{ author }}</div>{% endif %}
+</blockquote>
+{% endmacro %}

@@ -1,0 +1,16 @@
+@import url('./backToTop.css');
+
+.btn {
+    display: block;
+    text-align: center;
+    width: fit-content;
+    padding: 0.1rem 1rem;
+    margin: 0.6rem 2rem;
+    border: 2px solid orangered;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+        border-color: teal;
+    }
+}
