@@ -2,6 +2,6 @@
     {% if headerImage %}<img src="{{ headerImage | url }}" class="banner">{% elif default.headerImage %}<img src="{{ default.headerImage | url }}" class="banner">{% endif %}
     {% include "partials/backToTop.njk" %}
     <script src="/_scripts/menuToggle.js"></script>
-    <button id="menu-toggle">☰</button>
+    <button class="btn" id="menu-toggle">☰</button>
     <div id="backdrop"></div>
 </header>

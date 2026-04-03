@@ -1,44 +1,16 @@
 #btn_btt {
     position: fixed;
-    top: 0;
-    right: calc(var(--pagePadding) + 1rem);
+    bottom: 3rem;
+    right: 0;
     z-index: 100;
-    padding: 1.2rem 0.6rem;
-    background-color: transparent;
-    color: var(--darkRed);
-    border: none;
+    padding: 0.5rem;
+    background-color: white;
+    border: 2px solid tomato;
     opacity: 0;
     pointer-events: 0;
-    transition: color 0.5s ease, opacity 0.5s ease;
 
     &.visible {
         opacity: 1;
         pointer-events: auto;
-    }
-
-    &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-
-        background-color: var(--darkRed);
-        border: 6px solid var(--seaGreen);
-        border-top: none;
-
-        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% calc(100% - 1.5rem), 0% 100%);
-
-        transform-origin: top;
-        transition: transform 0.5s ease, clip-path 0.5s ease;
-    }
-
-    &:hover {
-        color: var(--parchment);
-
-        &::after {
-            --ratio: 2;
-            transform: scaleY(var(--ratio));
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% calc(100% - 1.5rem / var(--ratio)), 0% 100%);
-        }
     }
 }
