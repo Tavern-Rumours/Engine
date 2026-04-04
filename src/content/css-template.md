@@ -52,6 +52,11 @@ Sed feugiat sem sit amet nibh semper, at ornare lectus mattis. Maecenas euismod 
 {% endcontainer %}
 {% endcontainer %}
 
+| A | Markdown | Table |
+| --- | --- | --- |
+| What | Does | This |
+| Look | Like | ? |
+
 ***
 Special Blocks
 

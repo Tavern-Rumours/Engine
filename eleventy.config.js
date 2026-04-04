@@ -56,6 +56,7 @@ export default function (eleventy) {
     eleventy.addWatchTarget(`./${workspace}/${styles}`);
     eleventy.addWatchTarget(`./${workspace}/lib`)
 
+    // Apply base.njk as default layout
     eleventy.addGlobalData("layout", "base");
 
     return {
