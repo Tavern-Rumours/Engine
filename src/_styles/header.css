@@ -1,0 +1,11 @@
+header {
+
+    background-color: #e4e4e4;
+    
+    .banner {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}

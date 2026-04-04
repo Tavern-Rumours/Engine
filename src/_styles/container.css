@@ -1,0 +1,43 @@
+:is(blockquote) {
+    border: 2px solid blue;
+    padding: 0.6rem;
+    margin: 1rem;
+    position: relative;
+    background: #d4d4d4;
+    font-family: var(--fontContainer);
+    font-size: 0.8rem;
+    line-height: 1.65;
+    
+    > details .spoiler {
+        margin-bottom: 0.6rem;
+    }
+
+    p {
+        margin-top: 0;
+    }
+
+    .author {
+        margin-top: 0.3rem;
+        text-align: right;
+
+        &::before {
+            content: "- ";
+        }
+    }
+}
+
+.spoiler {
+    background-color: #d4d4d4;
+    padding: 0.3rem 0.6rem;
+    margin: 0 0.6rem;
+    border: 2px solid yellowgreen;
+    position: relative;
+
+    .spoiler-content > p:first-child {
+        margin: 0;
+    }
+
+    .spoiler-content > details .spoiler {
+        margin-bottom: 12px;
+    }
+}

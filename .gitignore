@@ -1,0 +1,6 @@
+# Workspace
+*.vscode
+
+# Directries
+node_modules
+www

@@ -1,0 +1,16 @@
+.img {
+    width: fit-content;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: 2px solid tomato;
+    position: relative;
+
+    img {
+        display: block;
+    }
+}
+
+img {
+    object-fit: contain;
+    max-width: 100%;
+}

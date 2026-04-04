@@ -1,0 +1,52 @@
+:is(p) {
+    margin: 0.6rem 0 0;
+}
+
+:is(mark) {
+    background-color: rgba(74, 74, 74, 0.35);
+
+    &.red {
+        background-color: rgba(197, 56, 52, 0.35);
+    }
+
+    &.yellow {
+        background-color: rgba(192, 120, 0, 0.35);
+    }
+
+    &.green {
+        background-color: rgba(9, 174, 117, 0.35);
+    }
+}
+
+:is(a) {
+    color: forestgreen;
+
+    &:hover {
+        color: tomato;
+    }
+
+    &.active {
+        color: tomato;
+    }
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+    margin: 1rem auto 0.3rem;
+}
+
+:is(h1) {
+    font-size: clamp(2em, 3em, 5vw);
+    text-align: center;
+}
+
+:is(h2) {
+    font-size: clamp(1.5em, 2em, 4vw);
+}
+
+:is(h3) {
+    font-size: clamp(1.2em, 1.75em, 3vw);
+}
+
+:is(h4, h5, h6) {
+    font-size: clamp(1em, 1.5em, 2vw);
+}

@@ -1,0 +1,52 @@
+/* Component Imports */
+@import url('./header.css');
+@import url('./text.css');
+@import url('./container.css');
+@import url('./image.css');
+@import url('./element.css');
+@import url('./tooltip.css');
+@import url('./formatting.css');
+@import url('./sidebar-nav.css');
+@import url('./sidebar.css');
+
+:root {
+    /* Fonts */
+    font-size: 20px;
+    font-family: system-ui;
+    line-height: 1.25;
+
+    --pagePadding: 0.8rem;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #2b2b2b;
+    display: flex;
+    margin: 1rem;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.page {
+    padding: var(--pagePadding);
+    background-color: #e4e4e4;
+    color: black;
+
+    container-type: inline-size;
+    container-name: article;
+}

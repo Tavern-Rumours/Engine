@@ -1,0 +1,41 @@
+{
+  "name": "tavernrumours-engine",
+  "version": "0.9.0",
+  "description": "A custom SSG implementation with 11ty to turn your writing into beautiful webpages",
+  "keywords": [
+    "ssg",
+    "11ty",
+    "eleventy",
+    "writing",
+    "worldbuilding",
+    "creative"
+  ],
+  "homepage": "https://github.com/Tavern-Rumours/Engine#readme",
+  "bugs": {
+    "url": "https://github.com/Tavern-Rumours/Engine/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tavern-Rumours/Engine.git"
+  },
+  "license": "GPL-3.0",
+  "author": "ShadowPhoenix",
+  "type": "module",
+  "main": "eleventy.config.js",
+  "scripts": {
+    "generate": "eleventy",
+    "start": "eleventy --serve",
+    "test": "echo \"Test!",
+    "eslint": "eslint"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "markdown-it-attrs": "^4.3.1"
+  },
+  "devDependencies": {
+    "@eslint/css": "^1.1.0",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0"
+  }
+}

@@ -1,0 +1,33 @@
+.tooltip {
+    text-decoration: underline;
+    text-decoration-color: tomato;
+    text-decoration-thickness: var(--border-width);
+    color: tomato;
+    cursor: help;
+}
+
+#tooltip {
+    position: fixed;
+    background: white;
+    border: 2px solid tomato;
+    padding: 0.4rem 0.8rem;
+    min-width: min-content;
+    width: max-content;
+    max-width: 400px;
+
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+    .content > p:first-child {
+        margin: 0;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
