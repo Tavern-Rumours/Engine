@@ -10,7 +10,9 @@ The Tavern Rumours Engine is a custom static site generation framework built on 
 ## Installation and commands
 To be able to run the Tavern Rumours Engine, you need to have `node.js` installed and run some commands in the terminal. Don't have `node.js` on your system yet? The helpful folks of `node.js` have made an [installation guide](https://nodejs.org/en/download/)! After installing `node.js`, you can run the Engine.
 
-Open a terminal and navigate to the directory of the Engine. During active development - whether you're tinkering with CSS and JavaScript, or you just want to see what your website looks like before uploading it - use `npm start` to spin up a development server on `http://localhost:8080/`.
+Open a terminal and navigate to the directory of the Engine. When you're using the Engine for the first time, run `npm install`.
+
+During active development - whether you're tinkering with CSS and JavaScript, or you just want to see what your website looks like before uploading it - use `npm start` to spin up a development server on `http://localhost:8080/`.
 
 > If you already have a server running on port `8080`, it'll automatically increment by one until it finds an open port.
 
