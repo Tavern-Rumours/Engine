@@ -38,9 +38,7 @@ export default function (eleventy) {
         }
 
         console.log("Pages to build: ", pages.length);
-        const navGraph = buildNavigationGraph(pages, input);
-        console.log(navGraph);
-        return navGraph;
+        return buildNavigationGraph(pages, input);
     });
 
     // Register (Paired) Shortcodes
