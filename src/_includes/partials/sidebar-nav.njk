@@ -1,31 +1,35 @@
-{% macro render(node, page, ancestors = []) %}
+{%- macro render(node, page, ancestors = []) -%}
 
-    {% set isRoot = node.url == "/" %}
-    {% set isActive = node.url == page.url %}
-    {% set isOpen = isRoot or ancestors.has(node.url) %}
+    {%- set isRoot = node.url == "/" -%}
+    {%- set isActive = node.url == page.url -%}
+    {%- set isOpen = isRoot or ancestors.has(node.url) -%}
 
     <div class="nav-node">
 
-        {% if node.children.length and not isRoot %}
-            <button class="toggle" data-open="{{ isOpen }}">
-                {{ "-" if isOpen else "+" }}
-            </button>
-        {% else %}
+        {%- if node.children.length and not isRoot -%}
+            <button class="toggle" data-open="{{ isOpen }}"></button>
+        {%- else -%}
             <span class="spacer"></span>
-        {% endif %}
+        {%- endif -%}
 
+        {%- if node.url -%}
         <a  href="{{ node.url | url }}"
             class="{{ "active" if isActive else "" }}">
-            {{ node.name }}
+            {{- node.name -}}
         </a>
+        {%- else -%}
+        <span class="{{ "active" if isActive else "" }}">
+            {{- node.name -}}
+        </span>
+        {%- endif -%}
 
-        {% if node.children.length %}
+        {%- if node.children.length -%}
             <div class="children"
                 style="display: {{ "block" if isOpen else "none" }}">
-                {% for child in node.children %}
+                {%- for child in node.children -%}
                     {{ render(child, page, ancestors) }}
-                {% endfor %}
+                {%- endfor -%}
             </div>
-        {% endif %}
+        {%- endif -%}
     </div>
-{% endmacro %}
+{%- endmacro -%}
