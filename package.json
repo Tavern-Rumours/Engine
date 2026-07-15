@@ -1,6 +1,6 @@
 {
   "name": "tavernrumours-engine",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "A custom SSG implementation with 11ty to turn your writing into beautiful webpages",
   "keywords": [
     "ssg",
