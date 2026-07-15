@@ -1,7 +1,6 @@
 .tooltip {
     text-decoration: underline;
     text-decoration-color: tomato;
-    text-decoration-thickness: var(--border-width);
     color: tomato;
     cursor: help;
 }

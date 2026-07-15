@@ -1,4 +1,4 @@
-{%- macro render(node, page, ancestors = []) -%}
+{%- macro render(node, page, ancestors = emptySet()) -%}
 
     {%- set isRoot = node.url == "/" -%}
     {%- set isActive = node.url == page.url -%}

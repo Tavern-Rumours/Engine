@@ -9,7 +9,7 @@
     padding: 0.5rem;
     background-color: #e4e4e4;
 
-    transition: flex-basis 0.3 ease;
+    transition: flex-basis 0.3s ease;
 
     &.collapsed {
         flex-basis: 0;

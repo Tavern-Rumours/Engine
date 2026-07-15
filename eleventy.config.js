@@ -55,7 +55,7 @@ export default function (eleventy) {
             };
         }
 
-        contentGraph = buildContentGraph(pages, input);
+        contentGraph = buildContentGraph(pages);
         return contentGraph;
     });
 
@@ -65,7 +65,7 @@ export default function (eleventy) {
     });
 
     // Enrich ContentGraph with Relations into RelationGraph
-    eleventy.addCollection("relationGraph", (collections) => {
+    eleventy.addCollection("relationGraph", () => {
         relationGraph = buildRelationGraph(contentGraph, relationTypes);
         return relationGraph;
     })
@@ -121,7 +121,7 @@ export default function (eleventy) {
     eleventy.on("eleventy.after", async () => {
         if (relationGraph.stubs.length) {
             let stubArticles = `[RelationGraph] Stub articles (${relationGraph.stubs.length}):\r\n`;
-            relationGraph.stubs.foreach(s => stubArticles = stubArticles + `  - ${s.name}\r\n`);
+            relationGraph.stubs.forEach(s => stubArticles = stubArticles + `  - ${s.name}\r\n`);
 
             console.log(stubArticles);
             fs.writeFileSync('./stubArticles.txt', stubArticles);
