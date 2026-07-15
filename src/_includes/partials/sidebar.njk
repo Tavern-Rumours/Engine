@@ -1,0 +1,65 @@
+{%- set relationNode = collections.relationGraph | getRelations(page.filePathStem) -%}
+{%- if page.sidebar.above or page.sidebar.top or page.sidebar.bottom or page.sidebar.below or relationNode %}
+
+{%- macro render(attributes) -%}
+{%- if attributes %}
+    {%- for key, value in attributes %}
+        <p>
+            <strong>{{- key -}}</strong><br>
+            {%- if value | isArray %}
+                {%- for item in value %}
+                    {{- item -}}<br>
+                {% endfor -%}
+            {%- elif value | isObject %}
+                {%- for itemKey, itemValue in value %}
+                    {{- itemKey -}}: {{- itemValue -}}<br>
+                {% endfor -%}
+            {%- else %}
+                {{- value -}}
+            {% endif -%}
+        </p>
+    {% endfor -%}
+{% endif -%}
+{% endmacro -%}
+
+<div class="s-right col-md-4 mw-500">
+    {%- if page.sidebar.above -%}
+    <section id="sidebar-above">
+        {{- page.sidebar.above | safe -}}
+    </section>
+    {% endif -%}
+
+    {%- if page.sidebar.top or page.sidebar.bottom or relationNode %}
+    <div class="sidebar">
+        {% if page.sidebar.top %}
+        <section id="sidebar-top">
+            {{- page.sidebar.top | safe -}}
+        </section>
+        {% endif -%}
+
+        {%- if relationNode %}
+        <section id="sidebar-relations">
+            {%- from "lib/relation.njk" import relationSection -%}
+            {{- relationSection(relationNode.relations) | safe -}}
+            {{- relationSection(relationNode.backlinks) | safe -}}
+        </section>
+        {% endif -%}
+
+        {%- if page.sidebar.bottom %}
+        <section id="sidebar-bottom">
+            {{- render(attributes) -}}
+            {{- page.sidebar.bottom | safe -}}
+        </section>
+        {% else %}
+            {{ render(attributes) }}
+        {% endif -%}
+    </div>
+    {% endif -%}
+
+    {%- if page.sidebar.below %}
+    <section id="sidebar-below">
+        {{- page.sidebar.below | safe -}}
+    </section>
+    {% endif -%}
+</div>
+{% endif -%}

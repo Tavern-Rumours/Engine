@@ -1,0 +1,54 @@
+{%- macro relationLink(link) %}
+<span class="relation-link{%- if link.sentiment %} relation-link--{{- link.sentiment -}}{% endif -%}">
+    {%- if link.node.url %}
+        <a href="{{ link.node.url }}">{{- link.label or link.node.name -}}</a>
+    {%- else -%}
+        <span>{{- link.label or link.node.name -}}</span>
+    {% endif -%}
+    
+    {%- if link.description %}
+        <span class="relation-link-description">{{- link.description -}}</span>
+    {% endif -%}
+</span>
+{% endmacro -%}
+
+{%- macro relationGroup(group) %}
+{%- if group and group.nodes | length %}
+    {%- set heading = group.labelPlural 
+        if (group.nodes | length > 1 and group.labelPlural and groupLabelPlural != group.label)
+        else group.label -%}
+    
+    <section class="relation-group">
+        <p>
+            <strong class="relation-group__heading">{{- heading -}}</strong>
+            {%- for link in group.nodes %}
+                <br>
+                {{- relationLink(link) -}}
+            {% endfor -%}
+        </p>
+    </section>
+{% endif -%}
+{% endmacro -%}
+
+{%- macro relationSection(collection, heading) %}
+{%- set hasContent = false -%}
+{%- for key, group in collection -%}
+    {%- if group.nodes | length and not group.hidden %}
+        {%- set hasContent = true -%}
+    {% endif -%}
+{% endfor -%}
+
+{%- if hasContent %}
+    <div class="relation-section">
+        {%- if heading %}
+            <h3 class="relation-section__heading">{{- heading -}}</h3>
+        {% endif -%}
+
+        {%- for key, group in collection %}
+            {%- if not group.hidden %}
+                {{- relationGroup(group) -}}
+            {% endif -%}
+        {% endfor -%}
+    </div>
+{% endif -%}
+{% endmacro -%}
