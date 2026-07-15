@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta property="og:site-name" content="" />
         <meta name="author" content="" />
-        <title>{{title}}</title>
-        <meta property="og:title" content="{{title}}" />
+        <title>{{title or displayTitle}}</title>
+        <meta property="og:title" content="{{title or displayTitle}}" />
         <meta name="description" content="{{description}}" />
         <meta property="og:description" content="{{description}}" />
         <meta property="og:image" content="{{headerImage}}" />
@@ -21,25 +21,30 @@
         
     </head>
     <body>
-        {% set navigation = collections.navGraph %}
-        {% set currentNode = navigation.getNodeByStem(page.filePathStem) %}
-        {% set ancestors = navigation.getActivePath(currentNode) %}
+        {%- set navigation = collections.navGraph -%}
+        {%- set ancestors = navigation | getAncestors(page.filePathStem) -%}
         
-        {% from "partials/sidebar-nav.njk" import render %}
+        {%- from "partials/sidebar-nav.njk" import render -%}
         <div class="sidebar-nav">
-            <script src="/_scripts/navToggle.js"></script>
-            {{ render(navigation.root, page, ancestors) }}
+            <script src="/_scripts/menuToggle.js"></script>
+            <div class="navigation">
+                <script src="/_scripts/navToggle.js"></script>
+                {{ render(navigation.root, page, ancestors) }}
+            </div>
         </div>
+
         <div class="content">
-            {% include "partials/header.njk" %}
+            {%- include "partials/header.njk" -%}
+            <button id="menu-toggle"><i class="fa-solid fa-bars" id="menu-toggle"></i></button>
             <main class="page">
+                {%- if title %}<h1>{{ title }}</h1>{% endif -%}
+                {%- include "partials/sidebar.njk" -%}
                 {{ content | safe }}
             </main>
 
-            {% include "partials/tooltip.njk" %}
-            <footer>
-                {% include "partials/madeWithTavernRumours.njk" %}
-            </footer>
+            {%- include "partials/tooltip.njk" -%}
+            {%- include "partials/copyrightFooter.njk" -%}
+            <script src="/_scripts/secretToggle.js"></script>
         </div>
     </body>
 </html>

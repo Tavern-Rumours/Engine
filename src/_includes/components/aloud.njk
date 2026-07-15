@@ -1,5 +1,5 @@
-{% macro aloud(content) %}
-<blockquote class="aloud">
+{% macro aloud(content, classes) %}
+<blockquote class="aloud {{- classes -}}">
     {{ content | safe }}
 </blockquote>
 {% endmacro %}
