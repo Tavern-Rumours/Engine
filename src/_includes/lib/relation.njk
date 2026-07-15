@@ -15,7 +15,7 @@
 {%- macro relationGroup(group) %}
 {%- if group and group.nodes | length %}
     {%- set heading = group.labelPlural 
-        if (group.nodes | length > 1 and group.labelPlural and groupLabelPlural != group.label)
+        if (group.nodes | length > 1 and group.labelPlural and group.LabelPlural != group.label)
         else group.label -%}
     
     <section class="relation-group">

@@ -7,7 +7,7 @@
     background-color: white;
     border: 2px solid tomato;
     opacity: 0;
-    pointer-events: 0;
+    pointer-events: none;
 
     &.visible {
         opacity: 1;

@@ -1,7 +1,8 @@
-{% if page.extendedTooltips %}
 <div id="tooltip">
     <div class="content"></div>
 </div>
+
+{% if page.extendedTooltips %}
 {% for t in page.extendedTooltips %}<template id="{{ t.id }}">{{ t.renderedContent | safe }}</template>{% endfor %}
 {% endif %}
 
