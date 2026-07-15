@@ -50,3 +50,8 @@ body {
     container-type: inline-size;
     container-name: article;
 }
+
+:is(blockquote),
+.spoiler {
+    display: flow-root;
+}

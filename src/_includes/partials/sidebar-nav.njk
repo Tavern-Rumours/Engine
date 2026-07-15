@@ -12,7 +12,7 @@
             <span class="spacer"></span>
         {%- endif -%}
 
-        {%- if node.url -%}
+        {%- if node.page -%}
         <a  href="{{ node.url | url }}"
             class="{{ "active" if isActive else "" }}">
             {{- node.name -}}

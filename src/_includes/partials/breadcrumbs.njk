@@ -1,0 +1,8 @@
+{%- set breadcrumbs = navigation | getBreadcrumbs(page.filePathStem) -%}
+<div class="breadcrumbs">
+    <a href="/"><i class="fa-solid fa-house-chimney"></i></a>
+    {%- for breadcrumb in breadcrumbs -%}
+        &nbsp;&gt;&nbsp;
+        {%- if breadcrumb.page -%}<a href="{{ breadcrumb.url }}">{{ breadcrumb.title }}</a>{%- else -%}{{ breadcrumb.title }}{%- endif -%}
+    {%- endfor -%}
+</div>

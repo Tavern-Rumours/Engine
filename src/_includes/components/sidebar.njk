@@ -1,5 +1,17 @@
-{% macro sidebar(content) %}
-<aside>
+{%- macro sidebar(content, classes) %}
+<aside class="{{ classes }}">
     {{ content | safe }}
 </aside>
-{% endmacro %}
+{% endmacro -%}
+
+{%- macro sidebarRight(content, classes) %}
+<div class="s-right {{ classes }}">
+    {{ content | safe }}
+</div>
+{% endmacro -%}
+
+{%- macro sidebarLeft(content, classes) %}
+<div class="s-left {{ classes }}">
+    {{ content | safe }}
+</div>
+{% endmacro -%}
